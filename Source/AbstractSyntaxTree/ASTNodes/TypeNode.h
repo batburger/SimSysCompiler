@@ -19,6 +19,8 @@ namespace ACC {
 
         Type getType();
 
+        std::string getUnverifiedName();
+
     private:
         UnverifiedType unverifiedType;
 

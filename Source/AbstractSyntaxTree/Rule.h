@@ -8,9 +8,10 @@
 #include <Parser/Production.h>
 #include <functional>
 #include <AbstractSyntaxTree/ASTNode.h>
+#include <AbstractSyntaxTree/AbstractSyntaxTree.h>
 
 namespace ACC{
-    using ruleExecuter_t = std::function<ACC::ASTNode*(std::vector<ACC::ParseNode*>, ACC::ASTNode*)>;
+    using ruleExecuter_t = std::function<ACC::ASTNode*(std::vector<ACC::ParseNode*>, ACC::ASTNode*, ACC::AbstractSyntaxTree& tree)>;
 
     /*! A Rule for turning a ParseNode to a Abstract Syntax Tree, it fits only one `Production`. */
     struct Rule {
@@ -24,7 +25,7 @@ namespace ACC{
      * @param node The `ParseNode` object pointer to apply the rule to.
      * @param carry A `ASTNode` pointer that may be given when apply is called from a rule generating the Abstract Syntax Tree.
      * @return Returns the `ASTNode` pointer to the ASTNode object created by applying the rule to the parse tree from `node` down.*/
-        ASTNode* apply(std::vector<ParseNode*> children, ASTNode* carry) const;
+        ASTNode* apply(std::vector<ParseNode*> children, ASTNode* carry, ACC::AbstractSyntaxTree& tree) const;
 
     private:
         const ruleExecuter_t func;

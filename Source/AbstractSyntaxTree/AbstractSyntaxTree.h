@@ -9,6 +9,7 @@
 #include <grammar.h>
 #include <Parser/ParseTree.h>
 #include "ASTNode.h"
+#include <AbstractSyntaxTree/Export/TypeExport.h>
 
 namespace ACC {
 
@@ -27,6 +28,11 @@ namespace ACC {
         ~AbstractSyntaxTree();
         void print();
         ASTNode* getRoot() const;
+
+        void doTypeResolution();
+
+        std::vector<TypeExport> typeExports;
+
     };
 }
 

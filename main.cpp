@@ -125,6 +125,8 @@ int main(int argc, char** argv) {
     p.getRoot()->print();
     auto a = AbstractSyntaxTree(p);
     a.print();
+    a.doTypeResolution();
+
     auto i = Assembly();
 
     try{

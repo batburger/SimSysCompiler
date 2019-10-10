@@ -37,3 +37,7 @@ ACC::Type ACC::TypeNode::getType() {
 std::string ACC::TypeNode::createRepresentation() const {
     return "Type: " + unverifiedType.id + (unverifiedType.isPtr ? ("*"):(""));
 }
+
+std::string ACC::TypeNode::getUnverifiedName() {
+    return unverifiedType.id;
+}

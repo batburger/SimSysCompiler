@@ -4,9 +4,9 @@
 
 #include "process.h"
 
-ACC::ASTNode *ACC::process(const ACC::ParseNode *node, ACC::ASTNode *carry) {
+ACC::ASTNode *ACC::process(const ACC::ParseNode *node, AbstractSyntaxTree &tree, ASTNode *carry) {
     Rule r = getRule(node);
-    auto n = r.apply(node->children, carry);
+    auto n = r.apply(node->children, carry, tree);
 
     if(node->children[0]->token && n) {
         n->lineContent = node->children[0]->token->lineContent;

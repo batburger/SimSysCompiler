@@ -8,6 +8,7 @@
 #include <AbstractSyntaxTree/ASTNode.h>
 #include <Parser/ParseNode.h>
 #include <astRules.h>
+#include <AbstractSyntaxTree/AbstractSyntaxTree.h>
 
 namespace ACC{
     /*! Given a `ParseNode`, this will return the `Rule` which will generate the abstract syntax tree for this parse node.
@@ -26,7 +27,7 @@ namespace ACC{
      * @param node The `ParseNode` object pointer to process.
      * @param carry A `ASTNode` pointer that may be given when process is called from a rule generating the Abstract Syntax Tree.
      * @return Returns the `ASTNode` pointer to the ASTNode object created by processing the parse tree from `node` down.*/
-    ACC::ASTNode *process(const ACC::ParseNode *node, ACC::ASTNode *carry = nullptr);
+    ACC::ASTNode *process(const ACC::ParseNode *node, AbstractSyntaxTree &tree, ASTNode *carry = nullptr);
 }
 
 

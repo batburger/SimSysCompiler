@@ -16,6 +16,7 @@ ACC::TypeDeclNode::TypeDeclNode(ACC::AstOperator op, std::string sym) : ASTNode(
 }
 
 std::shared_ptr<ACC::Structure> ACC::TypeDeclNode::generate(ACC::Code &code) {
+    return nullptr;
     std::unordered_map<std::string, TypeField> fields;
     std::unordered_map<std::string, size_t> fieldMap;
     size_t totalSize = 0;
